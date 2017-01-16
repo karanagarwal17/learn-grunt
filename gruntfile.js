@@ -2,17 +2,25 @@ module.exports = function(grunt){
 
   //configuration
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+    concat: {
+      js: {
+        src: ['js/*.js'],
+        dest: 'build/scripts.js'
+      },
+      css: {
+        src: ['css/*.css'],
+        dest: 'build/styles.css'
+      }
+    }
   });
 
-  //plugins
+  // load plugins
+
+  grunt.loadNpmTasks('grunt-contrib-concat');
 
   //register task
-  grunt.registerTask('run',function(){
-    console.log('I am running');
-  });
-  grunt.registerTask('sleep',function(){
-    console.log('I am sleeping');
-  });
-  grunt.registerTask('all',['sleep','run']);
+
+  grunt.registerTask('concat-js',['concat:js']);
+  grunt.registerTask('concat-css',['concat:css']);
+
 };
