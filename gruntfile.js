@@ -8,8 +8,16 @@ module.exports = function(grunt){
         dest: 'build/scripts.js'
       },
       css: {
-        src: ['css/*.css'],
+        src: ['css/reset.css','css/bootstrap.css','css/styles.css'],
         dest: 'build/styles.css'
+      }
+    },
+    sass: {
+      build: {
+        files: [{
+          src: 'css/sass/styles.scss',
+          dest: 'css/styles.css'
+        }]
       }
     }
   });
@@ -17,6 +25,7 @@ module.exports = function(grunt){
   // load plugins
 
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-sass');
 
   //register task
 
