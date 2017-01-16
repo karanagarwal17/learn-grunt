@@ -19,6 +19,14 @@ module.exports = function(grunt){
           dest: 'css/styles.css'
         }]
       }
+    },
+    uglify: {
+      build: {
+        files: [{
+          src: 'build/scripts.js',
+          dest: 'build/scripts.min.js'
+        }]
+      }
     }
   });
 
@@ -26,6 +34,7 @@ module.exports = function(grunt){
 
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   //register task
 
